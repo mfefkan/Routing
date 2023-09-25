@@ -10,9 +10,20 @@ import { Component } from '@angular/core';
 
     <hr />
     <router-outlet></router-outlet>
+    <br>
+    <button (click)="go()">Url değiştir. HTML5 yöntemi</button>
+
   `,
   styles:[".active{color:yellow;}"]
 })
 export class AppComponent {
+  constructor(){
+   
+  }
+
+
+  go(){
+    history.pushState({message:"merhaba"},"title","a/b")
+  }
   title = 'Routing';
 }
