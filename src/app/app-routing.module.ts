@@ -8,13 +8,14 @@ import { ErrorComponent } from './components/error/error.component';
 const routes: Routes = [
   {path:"",redirectTo:"/home",pathMatch:"full"}, //Default rout ayarımız. pathMatch ile ilgili iki parametre var full ve prefix. full tam eşleşme ister fakat prefix tam eşleşmese de çalışır.
   {path:"home", component:HomeComponent},
+  {path:"home/:id", component:HomeComponent},
   {path:"about", component:AboutComponent},
   {path:"contact/a/b/c", component:ContactComponent},
   {path:"**",component:ErrorComponent} //bu path en alta tanımlanmalıdır aksi taktirde kendisinden sonra gelen pathleri görmeyip bütün pathleri error componentine yönlendirir.
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{enableTracing: true,useHash:true})], // hash style routing
+  imports: [RouterModule.forRoot(routes)], // hash style routing => sarı parantez içine şunu ekle : {enableTracing: true,useHash:true}
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
